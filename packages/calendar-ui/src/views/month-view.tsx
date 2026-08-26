@@ -20,6 +20,11 @@ export interface MonthViewProps extends CalendarViewBaseProps {
   maxEventsPerDay?: number;
   /** Minimum height of a day cell. @default '6.5rem' */
   cellMinHeight?: string;
+  /**
+   * Prefix each event chip with its start time. Turn off for narrow cells,
+   * where the time crowds out the title. @default true
+   */
+  showEventTime?: boolean;
   /** Label for the overflow row. @default `+N more` / `N+ بیشتر` */
   moreLabel?: (count: number) => string;
   /** Fired when the overflow row is clicked. */
@@ -38,6 +43,7 @@ export function MonthView(props: MonthViewProps) {
     fixedWeeks,
     maxEventsPerDay = 3,
     cellMinHeight = '6.5rem',
+    showEventTime = true,
     moreLabel,
     onShowMore,
     onEventClick,
@@ -84,6 +90,7 @@ export function MonthView(props: MonthViewProps) {
                 layout="chip"
                 title={occurrence.title}
                 start={occurrence.start}
+                showTime={showEventTime}
                 allDay={occurrence.allDay || occurrence.isMultiDay}
                 variant={occurrence.variant}
                 color={occurrence.color}
