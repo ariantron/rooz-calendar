@@ -14,12 +14,15 @@
     "test": "pnpm --filter @rooz/calendar-core test",
     "test:watch": "pnpm --filter @rooz/calendar-core test:watch",
     "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r --if-present lint"
+    "lint": "pnpm -r --if-present lint",
+    "smoke": "node scripts/smoke-test.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",
     "typescript": "^5.7.3",
     "vite": "^6.0.11",
     "vitest": "^2.1.9"
-  }
+  },
+  "description": "A React scheduling library with the Jalali (Shamsi) calendar as a first-class date system.",
+  "license": "MIT"
 }
