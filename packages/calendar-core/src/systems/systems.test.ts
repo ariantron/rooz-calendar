@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { daysFromCivil } from '../civil';
+import { buildMonthGrid } from '../grid/month';
+import type { CalendarDate } from '../types';
+import { BaseCalendarSystem } from './base';
+import type { LocaleTable } from './locale-data';
 import { gregorian } from './gregorian';
 import { jalali } from './jalali';
 import { listCalendarSystems, registerCalendarSystem, resolveCalendarSystem } from './registry';
@@ -216,12 +220,73 @@ describe('registry', () => {
     expect(() => resolveCalendarSystem('mayan')).toThrow(/Unknown calendar system/);
   });
 
-  it('accepts new systems without changes elsewhere', () => {
-    // Stand-in for a future Hijri implementation: registering is the whole job.
-    const fake = { ...gregorian, id: 'test-system' } as typeof gregorian;
-    registerCalendarSystem(fake);
+  it('accepts a brand-new system built from the primitives alone', () => {
+    /**
+     * Stand-in for a future Hijri implementation. It supplies only the four
+     * primitives plus a name table; week alignment, month arithmetic and
+     * formatting all come from BaseCalendarSystem — which is exactly the
+     * promise the abstraction makes.
+     */
+    class ThirteenMonthSystem extends BaseCalendarSystem {
+      readonly id = 'test-system';
+      readonly monthsInYear = 13;
+      readonly defaultWeekStartsOn = 1 as const;
+      readonly defaultWeekends = [0] as const;
+      readonly minYear = 1;
+      readonly maxYear = 9999;
+      protected readonly localeTable: LocaleTable = {
+        fallback: 'en',
+        locales: {
+          en: {
+            months: {
+              long: Array.from({ length: 13 }, (_, i) => `Month ${i + 1}`),
+              short: Array.from({ length: 13 }, (_, i) => `M${i + 1}`),
+              narrow: Array.from({ length: 13 }, (_, i) => String(i + 1)),
+            },
+            weekdays: {
+              long: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+              short: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+              narrow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+            },
+          },
+        },
+      };
+
+      toDayNumber(date: CalendarDate): number {
+        return (date.year - 1) * 364 + (date.month - 1) * 28 + (date.day - 1);
+      }
+
+      fromDayNumber(dayNumber: number): CalendarDate {
+        const year = Math.floor(dayNumber / 364) + 1;
+        const dayOfYear = dayNumber - (year - 1) * 364;
+        return { year, month: Math.floor(dayOfYear / 28) + 1, day: (dayOfYear % 28) + 1 };
+      }
+
+      daysInMonth(): number {
+        return 28;
+      }
+
+      isLeapYear(): boolean {
+        return false;
+      }
+    }
+
+    const system = new ThirteenMonthSystem();
+    registerCalendarSystem(system);
     expect(listCalendarSystems()).toContain('test-system');
-    expect(resolveCalendarSystem('test-system')).toBe(fake);
+    expect(resolveCalendarSystem('test-system')).toBe(system);
+
+    // Derived behaviour works without the new system implementing any of it.
+    expect(system.daysInYear(5)).toBe(364);
+    expect(system.addMonths({ year: 3, month: 13, day: 28 }, 1)).toEqual({ year: 4, month: 1, day: 28 });
+    expect(system.addDays({ year: 3, month: 13, day: 28 }, 1)).toEqual({ year: 4, month: 1, day: 1 });
+    expect(system.format({ year: 3, month: 13, day: 5 }, 'MMMM d, yyyy')).toBe('Month 13 5, 0003');
+    expect(system.isValid({ year: 3, month: 14, day: 1 })).toBe(false);
+
+    // And the grid builders accept it untouched.
+    const grid = buildMonthGrid(3, 13, { system: 'test-system', today: new Date(2026, 7, 26) });
+    expect(grid.days.filter((day) => day.isCurrentMonth)).toHaveLength(28);
+    expect(grid.weeks[0]!.days[0]!.weekday).toBe(1);
   });
 });
 

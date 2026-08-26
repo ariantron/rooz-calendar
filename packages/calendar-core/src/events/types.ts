@@ -67,15 +67,3 @@ export interface PositionedEvent {
   /** True when the event ends after the grid's last visible hour. */
   clippedEnd: boolean;
 }
-
-/** One day's worth of events, as consumed by an agenda list. */
-export interface AgendaDay {
-  /** ISO `YYYY-MM-DD` key, matching a `DayCell.key`. */
-  key: string;
-  date: Date;
-  dayNumber: number;
-  /** Heading formatted in the active calendar system, e.g. `شنبه ۱ فروردین`. */
-  label: string;
-  isToday: boolean;
-  events: ResolvedEvent[];
-}

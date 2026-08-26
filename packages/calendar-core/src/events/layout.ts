@@ -1,7 +1,7 @@
 import { isoKeyFromDayNumber } from '../grid/shared';
 import type { DayCell, TimeGrid } from '../grid/types';
 import { compareEvents, resolveEvents } from './resolve';
-import type { AgendaDay, CalendarEvent, PositionedEvent, ResolvedEvent } from './types';
+import type { CalendarEvent, PositionedEvent, ResolvedEvent } from './types';
 
 /**
  * Bucket events by day key, expanding multi-day events into every day they
@@ -105,42 +105,6 @@ export function layoutDayEvents(
 /** All-day and multi-day events for a day, which time grids show in a top rail. */
 export function allDayEventsForDay(events: readonly ResolvedEvent[]): ResolvedEvent[] {
   return events.filter((event) => event.allDay || event.isMultiDay);
-}
-
-/**
- * Build an agenda: one entry per day in the range that has events (or every
- * day, with `includeEmptyDays`). Day headings are formatted in the active
- * calendar system.
- */
-export function buildAgenda(
-  events: readonly CalendarEvent[] | readonly ResolvedEvent[],
-  options: {
-    from: DayCell | { dayNumber: number };
-    to: DayCell | { dayNumber: number };
-    formatDayLabel: (dayNumber: number) => string;
-    dateForDayNumber: (dayNumber: number) => Date;
-    todayDayNumber?: number;
-    includeEmptyDays?: boolean;
-  },
-): AgendaDay[] {
-  const from = options.from.dayNumber;
-  const to = options.to.dayNumber;
-  const buckets = groupEventsByDay(events, { from, to });
-  const days: AgendaDay[] = [];
-  for (let dayNumber = from; dayNumber <= to; dayNumber += 1) {
-    const key = isoKeyFromDayNumber(dayNumber);
-    const dayEvents = buckets.get(key) ?? [];
-    if (dayEvents.length === 0 && !options.includeEmptyDays) continue;
-    days.push({
-      key,
-      dayNumber,
-      date: options.dateForDayNumber(dayNumber),
-      label: options.formatDayLabel(dayNumber),
-      isToday: dayNumber === options.todayDayNumber,
-      events: dayEvents,
-    });
-  }
-  return days;
 }
 
 function normalize(events: readonly CalendarEvent[] | readonly ResolvedEvent[]): ResolvedEvent[] {

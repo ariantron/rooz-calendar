@@ -1,6 +1,5 @@
-import { toNumerals } from '../numerals';
-import type { CalendarSystem } from '../types';
 import { buildDayCell, buildWeekdayLabels, formatClock, resolveGridContext, type ResolvedGridContext } from './shared';
+import { formatDayRangeTitle } from './title';
 import type { DayCell, TimeGrid, TimeGridOptions, TimeSlot } from './types';
 
 function buildSlots(ctx: ResolvedGridContext, startHour: number, endHour: number, slotMinutes: number): TimeSlot[] {
@@ -36,35 +35,6 @@ function validateHours(startHour: number, endHour: number, slotMinutes: number):
   }
 }
 
-/** Title for a run of days, e.g. `1 – 7 فروردین ۱۴۰۵` or `Mar 29 – Apr 4, 2026`. */
-function buildRangeTitle(system: CalendarSystem, ctx: ResolvedGridContext, days: DayCell[]): string {
-  const first = days[0]!;
-  const last = days[days.length - 1]!;
-  const months = system.getMonthNames(ctx.locale, 'long');
-  const firstMonth = months[first.calendarDate.month - 1] ?? '';
-  const lastMonth = months[last.calendarDate.month - 1] ?? '';
-  const num = (value: number) => toNumerals(String(value), ctx.numerals);
-
-  if (days.length === 1) {
-    return ctx.direction === 'rtl'
-      ? `${num(first.calendarDate.day)} ${firstMonth} ${num(first.calendarDate.year)}`
-      : `${firstMonth} ${num(first.calendarDate.day)}, ${num(first.calendarDate.year)}`;
-  }
-
-  const sameMonth =
-    first.calendarDate.year === last.calendarDate.year && first.calendarDate.month === last.calendarDate.month;
-  const sameYear = first.calendarDate.year === last.calendarDate.year;
-
-  if (ctx.direction === 'rtl') {
-    if (sameMonth) return `${num(first.calendarDate.day)} – ${num(last.calendarDate.day)} ${firstMonth} ${num(first.calendarDate.year)}`;
-    if (sameYear) return `${num(first.calendarDate.day)} ${firstMonth} – ${num(last.calendarDate.day)} ${lastMonth} ${num(first.calendarDate.year)}`;
-    return `${num(first.calendarDate.day)} ${firstMonth} ${num(first.calendarDate.year)} – ${num(last.calendarDate.day)} ${lastMonth} ${num(last.calendarDate.year)}`;
-  }
-  if (sameMonth) return `${firstMonth} ${num(first.calendarDate.day)} – ${num(last.calendarDate.day)}, ${num(first.calendarDate.year)}`;
-  if (sameYear) return `${firstMonth} ${num(first.calendarDate.day)} – ${lastMonth} ${num(last.calendarDate.day)}, ${num(first.calendarDate.year)}`;
-  return `${firstMonth} ${num(first.calendarDate.day)}, ${num(first.calendarDate.year)} – ${lastMonth} ${num(last.calendarDate.day)}, ${num(last.calendarDate.year)}`;
-}
-
 function buildTimeGrid(
   kind: 'week' | 'day',
   dayNumbers: number[],
@@ -94,7 +64,7 @@ function buildTimeGrid(
     endHour,
     slotMinutes,
     totalMinutes: (endHour - startHour) * 60,
-    title: buildRangeTitle(ctx.system, ctx, days),
+    title: formatDayRangeTitle(ctx.system, ctx, days[0]!.calendarDate, days[days.length - 1]!.calendarDate),
     range: { start: days[0]!.date, end: days[days.length - 1]!.date },
   };
 }

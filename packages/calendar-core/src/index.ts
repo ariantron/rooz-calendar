@@ -43,8 +43,16 @@ export type { LocaleNames, LocaleTable } from './systems/locale-data';
 
 export { buildMonthGrid, buildMonthGridForDate } from './grid/month';
 export { buildDayGrid, buildWeekGrid, slotStart } from './grid/time';
-export { buildAgendaGrid, type AgendaGrid, type AgendaGridOptions } from './grid/agenda';
+export { buildAgendaGrid, type AgendaDay, type AgendaGrid, type AgendaGridOptions } from './grid/agenda';
 export { isoKeyFromDate, isoKeyFromDayNumber, weekdayOrder } from './grid/shared';
+export {
+  buildPeriodTitle,
+  formatDayRangeTitle,
+  getPeriodRange,
+  stepPeriod,
+  type PeriodKind,
+  type PeriodOptions,
+} from './grid/title';
 export type {
   DayCell,
   GridBase,
@@ -66,13 +74,11 @@ export {
 } from './events/resolve';
 export {
   allDayEventsForDay,
-  buildAgenda,
   eventsForDay,
   groupEventsByDay,
   layoutDayEvents,
 } from './events/layout';
 export type {
-  AgendaDay,
   CalendarEvent,
   EventVariant,
   PositionedEvent,

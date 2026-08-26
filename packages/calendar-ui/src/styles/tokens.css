@@ -1,0 +1,90 @@
+/**
+ * Theme tokens for @rooz/calendar-ui.
+ *
+ * Every colour resolves through a fallback chain:
+ *
+ *   consumer's shadcn token  →  this library's own default
+ *
+ * so dropping the calendar into an existing shadcn project makes it inherit
+ * that project's theme automatically, while a project with no design tokens at
+ * all still renders correctly. Nothing here overwrites a token a consumer has
+ * already defined.
+ *
+ * Tailwind consumers: `@import "@rooz/calendar-ui/tokens.css";`
+ * Everyone else: import `@rooz/calendar-ui/styles.css`, which includes this.
+ *
+ * Shipped as source, not compiled: the `@theme` block below has to reach the
+ * consumer's own Tailwind build, which is what registers `bg-background` and
+ * friends in their project.
+ */
+
+@theme inline {
+  --color-background: var(--background, var(--rooz-background));
+  --color-foreground: var(--foreground, var(--rooz-foreground));
+  --color-card: var(--card, var(--rooz-card));
+  --color-card-foreground: var(--card-foreground, var(--rooz-card-foreground));
+  --color-popover: var(--popover, var(--rooz-popover));
+  --color-popover-foreground: var(--popover-foreground, var(--rooz-popover-foreground));
+  --color-primary: var(--primary, var(--rooz-primary));
+  --color-primary-foreground: var(--primary-foreground, var(--rooz-primary-foreground));
+  --color-secondary: var(--secondary, var(--rooz-secondary));
+  --color-secondary-foreground: var(--secondary-foreground, var(--rooz-secondary-foreground));
+  --color-muted: var(--muted, var(--rooz-muted));
+  --color-muted-foreground: var(--muted-foreground, var(--rooz-muted-foreground));
+  --color-accent: var(--accent, var(--rooz-accent));
+  --color-accent-foreground: var(--accent-foreground, var(--rooz-accent-foreground));
+  --color-destructive: var(--destructive, var(--rooz-destructive));
+  --color-destructive-foreground: var(--destructive-foreground, var(--rooz-destructive-foreground));
+  --color-border: var(--border, var(--rooz-border));
+  --color-input: var(--input, var(--rooz-input));
+  --color-ring: var(--ring, var(--rooz-ring));
+
+  --radius-sm: calc(var(--radius, 0.625rem) - 4px);
+  --radius-md: calc(var(--radius, 0.625rem) - 2px);
+  --radius-lg: var(--radius, 0.625rem);
+  --radius-xl: calc(var(--radius, 0.625rem) + 4px);
+}
+
+:root {
+  --rooz-background: oklch(1 0 0);
+  --rooz-foreground: oklch(0.145 0 0);
+  --rooz-card: oklch(1 0 0);
+  --rooz-card-foreground: oklch(0.145 0 0);
+  --rooz-popover: oklch(1 0 0);
+  --rooz-popover-foreground: oklch(0.145 0 0);
+  --rooz-primary: oklch(0.205 0 0);
+  --rooz-primary-foreground: oklch(0.985 0 0);
+  --rooz-secondary: oklch(0.97 0 0);
+  --rooz-secondary-foreground: oklch(0.205 0 0);
+  --rooz-muted: oklch(0.97 0 0);
+  --rooz-muted-foreground: oklch(0.556 0 0);
+  --rooz-accent: oklch(0.97 0 0);
+  --rooz-accent-foreground: oklch(0.205 0 0);
+  --rooz-destructive: oklch(0.577 0.245 27.325);
+  --rooz-destructive-foreground: oklch(0.985 0 0);
+  --rooz-border: oklch(0.922 0 0);
+  --rooz-input: oklch(0.922 0 0);
+  --rooz-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --rooz-background: oklch(0.145 0 0);
+  --rooz-foreground: oklch(0.985 0 0);
+  --rooz-card: oklch(0.205 0 0);
+  --rooz-card-foreground: oklch(0.985 0 0);
+  --rooz-popover: oklch(0.269 0 0);
+  --rooz-popover-foreground: oklch(0.985 0 0);
+  --rooz-primary: oklch(0.922 0 0);
+  --rooz-primary-foreground: oklch(0.205 0 0);
+  --rooz-secondary: oklch(0.269 0 0);
+  --rooz-secondary-foreground: oklch(0.985 0 0);
+  --rooz-muted: oklch(0.269 0 0);
+  --rooz-muted-foreground: oklch(0.708 0 0);
+  --rooz-accent: oklch(0.371 0 0);
+  --rooz-accent-foreground: oklch(0.985 0 0);
+  --rooz-destructive: oklch(0.704 0.191 22.216);
+  --rooz-destructive-foreground: oklch(0.985 0 0);
+  --rooz-border: oklch(1 0 0 / 12%);
+  --rooz-input: oklch(1 0 0 / 18%);
+  --rooz-ring: oklch(0.556 0 0);
+}
