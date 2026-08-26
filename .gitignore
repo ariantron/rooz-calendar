@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+storybook-static/
+*.tgz
+.DS_Store
+*.local
+.vite/
+.turbo/
