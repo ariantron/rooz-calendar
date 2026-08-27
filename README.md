@@ -226,7 +226,7 @@ v1 is deliberately narrow. These are **not** implemented, and are not stubbed ou
 pnpm install
 pnpm test            # calendar-core unit tests
 pnpm build           # build both packages
-pnpm dev             # the site at 0.0.0.0:8001 — home, /demo and /docs
+pnpm dev             # the site at 0.0.0.0:5174 — home, /demo and /docs
 pnpm smoke           # pack, install into a throwaway app, build and render it
 ```
 

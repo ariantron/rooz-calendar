@@ -34,12 +34,12 @@ export default defineConfig({
   base: process.env.VITE_BASE ?? '/',
   server: {
     host: '0.0.0.0',
-    port: 8001,
+    port: 5174,
     strictPort: true,
   },
   preview: {
     host: '0.0.0.0',
-    port: 8001,
+    port: 5174,
     strictPort: true,
   },
 });

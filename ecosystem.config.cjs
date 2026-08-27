@@ -5,7 +5,7 @@
  * directory and the pnpm path lived only in PM2's dump file. Keeping it here
  * makes the dev server reproducible: `pm2 start ecosystem.config.cjs`.
  *
- * Host and port come from `apps/web/vite.config.ts` (0.0.0.0:8001, strict), so
+ * Host and port come from `apps/web/vite.config.ts` (0.0.0.0:5174, strict), so
  * there is one place that decides where the site is served.
  */
 const { dirname, join } = require('node:path');
