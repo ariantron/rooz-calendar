@@ -51,6 +51,10 @@ not match `0.2.0`, so forgetting this breaks installs.
 
 ## Package names
 
-The packages are published under the `@rooz` scope. Swap the scope in both `package.json`
-files, both READMEs and the repository URLs before the first publish if your npm organisation
-differs.
+The packages are published under the `@rooz` scope, which is backed by the `rooz` npm
+organisation. Scopes are not claimed by publishing — the org has to exist and the publishing
+account has to be a member of it, or `npm publish` fails with a 403 that reads like a name
+collision. Create it once at <https://npmjs.com/org/create>; it is free for public packages.
+
+Both packages set `publishConfig.access` to `public`, because scoped packages default to
+private and would otherwise be rejected on an account without a paid plan.
