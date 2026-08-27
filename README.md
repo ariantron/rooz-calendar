@@ -6,8 +6,7 @@ first-class date system** — not a Gregorian grid with Persian labels pasted ov
 ```
 packages/calendar-core   calendar-system-agnostic date engine + grid generation
 packages/calendar-ui     shadcn-styled React components, built on calendar-core
-apps/demo                interactive playground
-apps/docs                landing page, live demo and generated API reference
+apps/web                 the site: landing page, live demo and generated API reference
 ```
 
 - **Native grids.** Which day falls in which week, where a month begins and ends, and which
@@ -227,8 +226,7 @@ v1 is deliberately narrow. These are **not** implemented, and are not stubbed ou
 pnpm install
 pnpm test            # calendar-core unit tests
 pnpm build           # build both packages
-pnpm dev:demo        # playground at localhost:5173
-pnpm dev:docs        # documentation site
+pnpm dev             # the site at 0.0.0.0:8001 — home, /demo and /docs
 pnpm smoke           # pack, install into a throwaway app, build and render it
 ```
 

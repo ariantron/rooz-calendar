@@ -7,10 +7,9 @@
     "node": ">=18"
   },
   "scripts": {
+    "dev": "pnpm --filter @rooz/web dev",
     "build": "pnpm -r --filter \"./packages/*\" build",
-    "build:site": "pnpm --filter @rooz/docs build",
-    "dev:demo": "pnpm --filter @rooz/demo dev",
-    "dev:docs": "pnpm --filter @rooz/docs dev",
+    "build:site": "pnpm --filter @rooz/web build",
     "test": "pnpm --filter @rooz/calendar-core test",
     "test:watch": "pnpm --filter @rooz/calendar-core test:watch",
     "typecheck": "pnpm -r typecheck",

@@ -46,7 +46,7 @@ not match `0.2.0`, so forgetting this breaks installs.
 7. Update `CHANGELOG.md`, and set the version in both `package.json` files plus the peer range.
 8. `git tag vX.Y.Z && git push --tags`
 9. `pnpm publish -r --filter "./packages/*" --access public`
-10. `pnpm build:site` and deploy `apps/docs/dist` (the Pages workflow does this on push to
+10. `pnpm build:site` and deploy `apps/web/dist` (the Pages workflow does this on push to
     `main`).
 
 ## Package names
