@@ -2,11 +2,11 @@
 
 Both packages are versioned together and follow [Semantic Versioning](https://semver.org/).
 
-## [0.1.0] — unreleased
+## [0.1.0] — 2026-08-27
 
 First release.
 
-### `@rooz/calendar-core`
+### `@rooz-calendar/core`
 
 - `CalendarSystem` interface with Gregorian and Jalali implementations, and
   `registerCalendarSystem` as the extension point for further systems.
@@ -16,7 +16,7 @@ First release.
 - Event resolution, multi-day bucketing and time-grid overlap layout.
 - Period helpers: `buildPeriodTitle`, `getPeriodRange`, `stepPeriod`.
 
-### `@rooz/calendar-ui`
+### `@rooz-calendar/ui`
 
 - `CalendarGrid`, `CalendarHeader` and `EventBlock` primitives.
 - `MonthView`, `WeekView`, `DayView`, `AgendaView`, and the `Calendar` composite.

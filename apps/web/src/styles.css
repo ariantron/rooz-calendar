@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@rooz/calendar-ui/tokens.css";
+@import "@rooz-calendar/ui/tokens.css";
 
 /*
  * Scan the library's built output for class names.

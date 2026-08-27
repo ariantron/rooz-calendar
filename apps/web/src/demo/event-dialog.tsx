@@ -1,4 +1,4 @@
-import type { EventVariant } from '@rooz/calendar-core';
+import type { EventVariant } from '@rooz-calendar/core';
 import { useEffect, useRef } from 'react';
 
 /** Everything the dialog shows, already formatted in the active system. */

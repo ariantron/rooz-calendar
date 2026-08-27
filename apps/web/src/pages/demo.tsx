@@ -2,7 +2,7 @@ import { Playground } from '../demo/playground';
 import { Code } from '../components/code';
 import { Section } from '../components/layout';
 
-const SNIPPET = `import { Calendar } from '@rooz/calendar-ui';
+const SNIPPET = `import { Calendar } from '@rooz-calendar/ui';
 
 <Calendar
   events={sessions}

@@ -5,7 +5,7 @@ import type {
   Numerals,
   ResolvedEvent,
   WeekdayIndex,
-} from '@rooz/calendar-core';
+} from '@rooz-calendar/core';
 
 /**
  * Props every view shares.

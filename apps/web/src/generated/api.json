@@ -1,19 +1,19 @@
 {
   "generatedFrom": [
-    "@rooz/calendar-core",
-    "@rooz/calendar-ui"
+    "@rooz-calendar/core",
+    "@rooz-calendar/ui"
   ],
   "components": [
     {
       "name": "CalendarGrid",
-      "description": "Renders a month, week or day grid produced by `@rooz/calendar-core`.\n\nDeliberately free of any scheduling logic: it draws whatever cells the grid\ncontains and hands their content back to the caller through render props.\nBecause the grid was built natively in the active calendar system, laying it\nout here is the same code for Gregorian and Jalali — including the column\norder, which follows the grid's own `weekStartsOn`.",
+      "description": "Renders a month, week or day grid produced by `@rooz-calendar/core`.\n\nDeliberately free of any scheduling logic: it draws whatever cells the grid\ncontains and hands their content back to the caller through render props.\nBecause the grid was built natively in the active calendar system, laying it\nout here is the same code for Gregorian and Jalali — including the column\norder, which follows the grid's own `weekStartsOn`.",
       "propsTypeName": "CalendarGridProps",
       "props": [
         {
           "name": "grid",
           "type": "MonthGrid | TimeGrid",
           "optional": false,
-          "description": "A grid produced by `@rooz/calendar-core`'s builders."
+          "description": "A grid produced by `@rooz-calendar/core`'s builders."
         },
         {
           "name": "dayLabel",
@@ -993,7 +993,7 @@
   "packages": [
     {
       "id": "calendar-core",
-      "name": "@rooz/calendar-core",
+      "name": "@rooz-calendar/core",
       "entries": [
         {
           "name": "AgendaDay",
@@ -1376,7 +1376,7 @@
         {
           "name": "CalendarSystem",
           "kind": "interface",
-          "description": "The one interface every calendar system implements.\n\nAdding a new calendar system (Hijri, for instance) means implementing this\ninterface and registering it — no consumer of `@rooz/calendar-core` and no\ncomponent in `@rooz/calendar-ui` needs to change.",
+          "description": "The one interface every calendar system implements.\n\nAdding a new calendar system (Hijri, for instance) means implementing this\ninterface and registering it — no consumer of `@rooz-calendar/core` and no\ncomponent in `@rooz-calendar/ui` needs to change.",
           "properties": [
             {
               "name": "addDays",
@@ -1988,7 +1988,7 @@
         {
           "name": "EventVariant",
           "kind": "type",
-          "description": "Built-in colour variants understood by `@rooz/calendar-ui`'s `EventBlock`.",
+          "description": "Built-in colour variants understood by `@rooz-calendar/ui`'s `EventBlock`.",
           "properties": [
             {
               "name": "anchor",
@@ -4452,7 +4452,7 @@
     },
     {
       "id": "calendar-ui",
-      "name": "@rooz/calendar-ui",
+      "name": "@rooz-calendar/ui",
       "entries": [
         {
           "name": "AgendaView",
@@ -4735,7 +4735,7 @@
         {
           "name": "CalendarGrid",
           "kind": "function",
-          "description": "Renders a month, week or day grid produced by `@rooz/calendar-core`.\n\nDeliberately free of any scheduling logic: it draws whatever cells the grid\ncontains and hands their content back to the caller through render props.\nBecause the grid was built natively in the active calendar system, laying it\nout here is the same code for Gregorian and Jalali — including the column\norder, which follows the grid's own `weekStartsOn`.",
+          "description": "Renders a month, week or day grid produced by `@rooz-calendar/core`.\n\nDeliberately free of any scheduling logic: it draws whatever cells the grid\ncontains and hands their content back to the caller through render props.\nBecause the grid was built natively in the active calendar system, laying it\nout here is the same code for Gregorian and Jalali — including the column\norder, which follows the grid's own `weekStartsOn`.",
           "signature": "CalendarGrid(props: CalendarGridProps & React.RefAttributes<HTMLDivElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
           "properties": [],
           "forwardedTo": []
@@ -4749,7 +4749,7 @@
               "name": "grid",
               "type": "MonthGrid | TimeGrid",
               "optional": false,
-              "description": "A grid produced by `@rooz/calendar-core`'s builders."
+              "description": "A grid produced by `@rooz-calendar/core`'s builders."
             },
             {
               "name": "dayLabel",
@@ -5178,7 +5178,7 @@
         {
           "name": "CalendarSystem",
           "kind": "interface",
-          "description": "The one interface every calendar system implements.\n\nAdding a new calendar system (Hijri, for instance) means implementing this\ninterface and registering it — no consumer of `@rooz/calendar-core` and no\ncomponent in `@rooz/calendar-ui` needs to change.",
+          "description": "The one interface every calendar system implements.\n\nAdding a new calendar system (Hijri, for instance) means implementing this\ninterface and registering it — no consumer of `@rooz-calendar/core` and no\ncomponent in `@rooz-calendar/ui` needs to change.",
           "properties": [
             {
               "name": "addDays",
@@ -6076,7 +6076,7 @@
         {
           "name": "EventVariant",
           "kind": "type",
-          "description": "Built-in colour variants understood by `@rooz/calendar-ui`'s `EventBlock`.",
+          "description": "Built-in colour variants understood by `@rooz-calendar/ui`'s `EventBlock`.",
           "properties": [
             {
               "name": "anchor",
@@ -7152,7 +7152,7 @@
               "name": "gridOptions",
               "type": "{ system: CalendarSystem; locale: string; numerals: Numerals; weekStartsOn?: CalendarViewBaseProps['weekStartsOn']; weekends?: CalendarViewBaseProps['weekends']; today: Date; }",
               "optional": false,
-              "description": "Options object accepted by every `@rooz/calendar-core` grid builder."
+              "description": "Options object accepted by every `@rooz-calendar/core` grid builder."
             },
             {
               "name": "locale",

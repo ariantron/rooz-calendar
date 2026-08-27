@@ -1,5 +1,5 @@
 /**
- * `@rooz/calendar-core` — a calendar-system-agnostic date engine and grid
+ * `@rooz-calendar/core` — a calendar-system-agnostic date engine and grid
  * generator, with the Jalali (Shamsi) calendar as a first-class citizen.
  *
  * Nothing in this package computes a grid in Gregorian and relabels it: month

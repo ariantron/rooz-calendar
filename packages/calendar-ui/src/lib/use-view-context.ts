@@ -9,7 +9,7 @@ import {
   type Direction,
   type Numerals,
   type ResolvedEvent,
-} from '@rooz/calendar-core';
+} from '@rooz-calendar/core';
 import * as React from 'react';
 import type { CalendarViewBaseProps } from '../types';
 
@@ -27,7 +27,7 @@ export interface ViewContext {
   formatTime: (value: Date) => string;
   /** Accessible full-date label for a day cell. */
   dayLabel: (day: DayCell) => string;
-  /** Options object accepted by every `@rooz/calendar-core` grid builder. */
+  /** Options object accepted by every `@rooz-calendar/core` grid builder. */
   gridOptions: {
     system: CalendarSystem;
     locale: string;

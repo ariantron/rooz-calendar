@@ -1,4 +1,4 @@
-import type { DayCell, MonthGrid, TimeGrid, TimeSlot } from '@rooz/calendar-core';
+import type { DayCell, MonthGrid, TimeGrid, TimeSlot } from '@rooz-calendar/core';
 import * as React from 'react';
 import { cn } from '../lib/utils';
 
@@ -6,7 +6,7 @@ import { cn } from '../lib/utils';
 export type AnyGrid = MonthGrid | TimeGrid;
 
 export interface CalendarGridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
-  /** A grid produced by `@rooz/calendar-core`'s builders. */
+  /** A grid produced by `@rooz-calendar/core`'s builders. */
   grid: AnyGrid;
   /** Day keys (ISO `YYYY-MM-DD`) to render as selected. */
   selectedKeys?: readonly string[];
@@ -35,7 +35,7 @@ export interface CalendarGridProps extends Omit<React.HTMLAttributes<HTMLDivElem
 }
 
 /**
- * Renders a month, week or day grid produced by `@rooz/calendar-core`.
+ * Renders a month, week or day grid produced by `@rooz-calendar/core`.
  *
  * Deliberately free of any scheduling logic: it draws whatever cells the grid
  * contains and hands their content back to the caller through render props.

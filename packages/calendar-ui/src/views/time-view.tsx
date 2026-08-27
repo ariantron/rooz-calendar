@@ -6,7 +6,7 @@ import {
   groupEventsByDay,
   layoutDayEvents,
   slotStart,
-} from '@rooz/calendar-core';
+} from '@rooz-calendar/core';
 import * as React from 'react';
 import { useViewContext } from '../lib/use-view-context';
 import { cn } from '../lib/utils';

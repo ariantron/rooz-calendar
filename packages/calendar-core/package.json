@@ -1,5 +1,5 @@
 {
-  "name": "@rooz/calendar-core",
+  "name": "@rooz-calendar/core",
   "version": "0.1.0",
   "description": "Calendar-system-agnostic date engine and grid generator with first-class Jalali (Shamsi) support.",
   "license": "MIT",

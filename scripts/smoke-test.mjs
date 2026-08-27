@@ -114,7 +114,7 @@ step('Checking dependency declarations');
   const uiPkg = JSON.parse(readFileSync(join(repoRoot, 'packages/calendar-ui/package.json'), 'utf8'));
   check(!!uiPkg.peerDependencies?.react, 'calendar-ui declares react as a peer dependency');
   check(!uiPkg.dependencies?.react, 'calendar-ui does not depend on react directly');
-  check(!!uiPkg.peerDependencies?.['@rooz/calendar-core'], 'calendar-ui declares calendar-core as a peer dependency');
+  check(!!uiPkg.peerDependencies?.['@rooz-calendar/core'], 'calendar-ui declares calendar-core as a peer dependency');
 
   const corePkg = JSON.parse(readFileSync(join(repoRoot, 'packages/calendar-core/package.json'), 'utf8'));
   check(!corePkg.peerDependencies, 'calendar-core has no peer dependencies of its own');
@@ -137,8 +137,8 @@ writeFileSync(
       type: 'module',
       scripts: { build: 'vite build' },
       dependencies: {
-        '@rooz/calendar-core': `file:${tarballs['calendar-core']}`,
-        '@rooz/calendar-ui': `file:${tarballs['calendar-ui']}`,
+        '@rooz-calendar/core': `file:${tarballs['calendar-core']}`,
+        '@rooz-calendar/ui': `file:${tarballs['calendar-ui']}`,
         react: '^19.0.0',
         'react-dom': '^19.0.0',
       },
@@ -174,9 +174,9 @@ writeFileSync(
 // carry every utility the components use, all by itself.
 writeFileSync(
   join(app, 'src/main.jsx'),
-  `import { buildMonthGrid, jalali } from '@rooz/calendar-core';
-import { MonthView, WeekView, AgendaView } from '@rooz/calendar-ui';
-import '@rooz/calendar-ui/styles.css';
+  `import { buildMonthGrid, jalali } from '@rooz-calendar/core';
+import { MonthView, WeekView, AgendaView } from '@rooz-calendar/ui';
+import '@rooz-calendar/ui/styles.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -210,10 +210,10 @@ createRoot(document.getElementById('root')).render(
 // Type-level check: the published .d.ts has to be usable from TypeScript.
 writeFileSync(
   join(app, 'src/types-check.ts'),
-  `import type { CalendarEvent, DayCell, MonthGrid } from '@rooz/calendar-core';
-import { buildMonthGrid, jalali, resolveCalendarSystem } from '@rooz/calendar-core';
-import type { MonthViewProps } from '@rooz/calendar-ui';
-import { MonthView } from '@rooz/calendar-ui';
+  `import type { CalendarEvent, DayCell, MonthGrid } from '@rooz-calendar/core';
+import { buildMonthGrid, jalali, resolveCalendarSystem } from '@rooz-calendar/core';
+import type { MonthViewProps } from '@rooz-calendar/ui';
+import { MonthView } from '@rooz-calendar/ui';
 
 const grid: MonthGrid = buildMonthGrid(1405, 1, { system: 'jalali' });
 const cell: DayCell | undefined = grid.days[0];

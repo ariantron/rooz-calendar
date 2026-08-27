@@ -60,8 +60,8 @@ export interface FormatOptions {
  * The one interface every calendar system implements.
  *
  * Adding a new calendar system (Hijri, for instance) means implementing this
- * interface and registering it — no consumer of `@rooz/calendar-core` and no
- * component in `@rooz/calendar-ui` needs to change.
+ * interface and registering it — no consumer of `@rooz-calendar/core` and no
+ * component in `@rooz-calendar/ui` needs to change.
  */
 export interface CalendarSystem {
   /** Stable identifier, e.g. `gregorian`, `jalali`. */

@@ -1,5 +1,5 @@
 /**
- * Theme tokens for @rooz/calendar-ui.
+ * Theme tokens for @rooz-calendar/ui.
  *
  * Every colour resolves through a fallback chain:
  *
@@ -10,8 +10,8 @@
  * all still renders correctly. Nothing here overwrites a token a consumer has
  * already defined.
  *
- * Tailwind consumers: `@import "@rooz/calendar-ui/tokens.css";`
- * Everyone else: import `@rooz/calendar-ui/styles.css`, which includes this.
+ * Tailwind consumers: `@import "@rooz-calendar/ui/tokens.css";`
+ * Everyone else: import `@rooz-calendar/ui/styles.css`, which includes this.
  *
  * Shipped as source, not compiled: the `@theme` block below has to reach the
  * consumer's own Tailwind build, which is what registers `bg-background` and

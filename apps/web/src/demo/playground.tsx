@@ -1,6 +1,6 @@
-import type { CalendarEvent, Numerals, ResolvedEvent } from '@rooz/calendar-core';
-import { getLocaleDirection, resolveCalendarSystem } from '@rooz/calendar-core';
-import { Calendar, type CalendarViewKind } from '@rooz/calendar-ui';
+import type { CalendarEvent, Numerals, ResolvedEvent } from '@rooz-calendar/core';
+import { getLocaleDirection, resolveCalendarSystem } from '@rooz-calendar/core';
+import { Calendar, type CalendarViewKind } from '@rooz-calendar/ui';
 import { useEffect, useMemo, useState } from 'react';
 import { type EventDetails, EventDialog } from './event-dialog';
 import { buildSampleEvents } from './sample-events';
@@ -26,7 +26,7 @@ export interface PlaygroundProps {
 /**
  * The interactive demo: every view, both calendar systems, both locales.
  *
- * It imports `@rooz/calendar-ui` exactly as a consumer would — same package
+ * It imports `@rooz-calendar/ui` exactly as a consumer would — same package
  * entry point, same props — so what is on screen is what ships.
  */
 export function Playground({

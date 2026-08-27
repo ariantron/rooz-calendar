@@ -1,5 +1,5 @@
 {
-  "name": "@rooz/calendar-ui",
+  "name": "@rooz-calendar/ui",
   "version": "0.1.0",
   "description": "shadcn-styled React calendar and scheduling views with native Jalali (Shamsi) and RTL support.",
   "license": "MIT",
@@ -56,7 +56,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
-    "@rooz/calendar-core": "^0.1.0",
+    "@rooz-calendar/core": "^0.1.0",
     "react": "^18.2.0 || ^19.0.0",
     "react-dom": "^18.2.0 || ^19.0.0"
   },
@@ -68,7 +68,7 @@
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
-    "@rooz/calendar-core": "workspace:*",
+    "@rooz-calendar/core": "workspace:*",
     "@tailwindcss/cli": "^4.0.6",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",

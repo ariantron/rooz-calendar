@@ -1,5 +1,5 @@
 /**
- * Standalone stylesheet for @rooz/calendar-ui.
+ * Standalone stylesheet for @rooz-calendar/ui.
  *
  * Ships every utility the library actually uses, and **no Preflight** — so
  * importing it will not reset a consuming application's own styles. Projects

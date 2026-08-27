@@ -1,14 +1,14 @@
-import { MonthView } from '@rooz/calendar-ui';
+import { MonthView } from '@rooz-calendar/ui';
 import { useMemo } from 'react';
 import { Link } from 'react-router';
 import { buildSampleEvents } from '../demo/sample-events';
 import { Code } from '../components/code';
 import { Badge, Card, Section } from '../components/layout';
 
-const INSTALL = 'npm install @rooz/calendar-ui @rooz/calendar-core';
+const INSTALL = 'npm install @rooz-calendar/ui @rooz-calendar/core';
 
-const QUICKSTART = `import { MonthView } from '@rooz/calendar-ui';
-import '@rooz/calendar-ui/styles.css';
+const QUICKSTART = `import { MonthView } from '@rooz-calendar/ui';
+import '@rooz-calendar/ui/styles.css';
 
 const sessions = [
   { id: 's1', title: 'Linear Algebra', start: '2026-08-26T09:00:00', end: '2026-08-26T10:30:00' },

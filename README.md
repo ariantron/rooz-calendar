@@ -44,20 +44,20 @@ out of a translation table.
 ## Install
 
 ```bash
-npm install @rooz/calendar-ui @rooz/calendar-core
+npm install @rooz-calendar/ui @rooz-calendar/core
 ```
 
-`@rooz/calendar-core` is a peer dependency of the UI package, so there is exactly one copy of
+`@rooz-calendar/core` is a peer dependency of the UI package, so there is exactly one copy of
 the date engine (and one calendar-system registry) in your app. `react` and `react-dom` are
 peers too — React 18 and 19 are both supported.
 
-Need only the date math? Install `@rooz/calendar-core` on its own; it has no React dependency.
+Need only the date math? Install `@rooz-calendar/core` on its own; it has no React dependency.
 
 ## Quickstart
 
 ```tsx
-import { MonthView } from '@rooz/calendar-ui';
-import '@rooz/calendar-ui/styles.css';
+import { MonthView } from '@rooz-calendar/ui';
+import '@rooz-calendar/ui/styles.css';
 
 const sessions = [
   { id: 's1', title: 'Linear Algebra', start: '2026-08-26T09:00:00', end: '2026-08-26T10:30:00' },
@@ -84,7 +84,7 @@ has to know which calendar system is on screen** — switching systems does not 
 For a header, navigation and a view switcher, use the `Calendar` composite:
 
 ```tsx
-import { Calendar } from '@rooz/calendar-ui';
+import { Calendar } from '@rooz-calendar/ui';
 
 <Calendar events={sessions} calendarSystem="jalali" locale="fa" defaultView="week" />;
 ```
@@ -97,21 +97,21 @@ Three supported setups, depending on what your project already uses.
 and **contains no Preflight**, so it will not reset your application's styles.
 
 ```ts
-import '@rooz/calendar-ui/styles.css';
+import '@rooz-calendar/ui/styles.css';
 ```
 
 **2. Tailwind + shadcn.** Point Tailwind at the package instead, and the calendar inherits your
 theme — your `--background`, `--primary` and `--radius` tokens are used directly.
 
 ```css
-@source "../node_modules/@rooz/calendar-ui/dist";
+@source "../node_modules/@rooz-calendar/ui/dist";
 ```
 
 **3. Tailwind without shadcn tokens.** Add the token map as well.
 
 ```css
-@import "@rooz/calendar-ui/tokens.css";
-@source "../node_modules/@rooz/calendar-ui/dist";
+@import "@rooz-calendar/ui/tokens.css";
+@source "../node_modules/@rooz-calendar/ui/dist";
 ```
 
 Every colour resolves through a fallback chain — *your token, then the library's default* — so
@@ -158,7 +158,7 @@ integer days since 1970-01-01. Two consequences fall out of that:
 those, plus a table of month and weekday names, and registers itself:
 
 ```ts
-import { BaseCalendarSystem, registerCalendarSystem } from '@rooz/calendar-core';
+import { BaseCalendarSystem, registerCalendarSystem } from '@rooz-calendar/core';
 
 class HijriCalendarSystem extends BaseCalendarSystem {
   readonly id = 'hijri';
@@ -185,7 +185,7 @@ this path with a deliberately alien 13-month system, so the claim stays honest.
 ## Using the date engine on its own
 
 ```ts
-import { buildMonthGrid, jalali, stepPeriod } from '@rooz/calendar-core';
+import { buildMonthGrid, jalali, stepPeriod } from '@rooz-calendar/core';
 
 jalali.fromDate(new Date(2026, 7, 26));            // { year: 1405, month: 6, day: 4 }
 jalali.format(new Date(), 'EEEE d MMMM yyyy', { locale: 'fa' });  // چهارشنبه ۴ شهریور ۱۴۰۵

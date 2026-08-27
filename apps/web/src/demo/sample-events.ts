@@ -1,4 +1,4 @@
-import { resolveCalendarSystem, type CalendarEvent, type CalendarSystemInput } from '@rooz/calendar-core';
+import { resolveCalendarSystem, type CalendarEvent, type CalendarSystemInput } from '@rooz-calendar/core';
 
 interface Seed {
   /** Days from the start of the reference month, in the active system. */

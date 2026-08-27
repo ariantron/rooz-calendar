@@ -1,6 +1,6 @@
 /**
- * `@rooz/calendar-ui` — shadcn-styled React calendar views built on
- * `@rooz/calendar-core`.
+ * `@rooz-calendar/ui` — shadcn-styled React calendar views built on
+ * `@rooz-calendar/core`.
  *
  * Every view takes the same small prop set (`events`, `calendarSystem`,
  * `locale`, `onEventClick`, `onDateSelect`), and every grid is generated
@@ -36,4 +36,4 @@ export type {
   Numerals,
   ResolvedEvent,
   WeekdayIndex,
-} from '@rooz/calendar-core';
+} from '@rooz-calendar/core';

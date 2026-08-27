@@ -5,7 +5,7 @@ import {
   toNumerals,
   type DayCell,
   type ResolvedEvent,
-} from '@rooz/calendar-core';
+} from '@rooz-calendar/core';
 import * as React from 'react';
 import { cn } from '../lib/utils';
 import { useViewContext } from '../lib/use-view-context';

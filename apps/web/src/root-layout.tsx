@@ -60,7 +60,7 @@ export function RootLayout() {
       <footer className="border-t border-border">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-xs text-muted-foreground">
           <span>MIT licensed. Jalali conversion by jalali-moment.</span>
-          <span className="font-mono">@rooz/calendar-core · @rooz/calendar-ui</span>
+          <span className="font-mono">@rooz-calendar/core · @rooz-calendar/ui</span>
         </div>
       </footer>
     </div>

@@ -1,15 +1,15 @@
-# @rooz/calendar-core
+# @rooz-calendar/core
 
 The calendar-system-agnostic date engine and grid generator behind
 [Rooz Calendar](https://github.com/ariantron/rooz-calendar). No React dependency — install this
 alone if you need Jalali date math without calendar UI.
 
 ```bash
-npm install @rooz/calendar-core
+npm install @rooz-calendar/core
 ```
 
 ```ts
-import { buildMonthGrid, jalali, gregorian, stepPeriod } from '@rooz/calendar-core';
+import { buildMonthGrid, jalali, gregorian, stepPeriod } from '@rooz-calendar/core';
 
 jalali.fromDate(new Date(2026, 7, 26));   // { year: 1405, month: 6, day: 4 }
 jalali.daysInMonth(1403, 12);             // 30 — 1403 is a leap year

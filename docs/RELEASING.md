@@ -25,7 +25,7 @@ What does not:
 - Fixing a date-conversion bug. A grid that was wrong was never part of the contract — but
   say so plainly in the changelog, because someone may have worked around it.
 
-`@rooz/calendar-ui` declares `@rooz/calendar-core` as a peer dependency with an explicit
+`@rooz-calendar/ui` declares `@rooz-calendar/core` as a peer dependency with an explicit
 semver range. **Bump that range whenever the core's minor changes** — under 0.x, `^0.1.0` does
 not match `0.2.0`, so forgetting this breaks installs.
 

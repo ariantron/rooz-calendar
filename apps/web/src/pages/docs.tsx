@@ -45,15 +45,15 @@ const api = apiData as unknown as {
 
 const STYLE_SETUP = `/* 1. No Tailwind in your project — ship the whole stylesheet.
       Contains no Preflight, so it will not reset your app's styles. */
-import '@rooz/calendar-ui/styles.css';
+import '@rooz-calendar/ui/styles.css';
 
 /* 2. Tailwind + shadcn — add one line to your CSS. The calendar
       picks up your existing --background / --primary / --radius tokens. */
-@source "../node_modules/@rooz/calendar-ui/dist";
+@source "../node_modules/@rooz-calendar/ui/dist";
 
 /* 3. Tailwind without shadcn tokens — add the token map too. */
-@import "@rooz/calendar-ui/tokens.css";
-@source "../node_modules/@rooz/calendar-ui/dist";`;
+@import "@rooz-calendar/ui/tokens.css";
+@source "../node_modules/@rooz-calendar/ui/dist";`;
 
 function PropsTable({ rows, emptyLabel }: { rows: PropRow[]; emptyLabel: string }) {
   if (rows.length === 0) return <p className="text-sm text-muted-foreground">{emptyLabel}</p>;

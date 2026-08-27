@@ -18,7 +18,7 @@ export default defineConfig({
         'react',
         'react-dom',
         'react/jsx-runtime',
-        '@rooz/calendar-core',
+        '@rooz-calendar/core',
         /^@radix-ui\//,
         'class-variance-authority',
         'clsx',

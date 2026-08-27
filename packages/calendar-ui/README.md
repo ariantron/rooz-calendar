@@ -1,15 +1,15 @@
-# @rooz/calendar-ui
+# @rooz-calendar/ui
 
 shadcn-styled React calendar and scheduling views with native Jalali (Shamsi) and RTL support,
-built on [`@rooz/calendar-core`](https://www.npmjs.com/package/@rooz/calendar-core).
+built on [`@rooz-calendar/core`](https://www.npmjs.com/package/@rooz-calendar/core).
 
 ```bash
-npm install @rooz/calendar-ui @rooz/calendar-core
+npm install @rooz-calendar/ui @rooz-calendar/core
 ```
 
 ```tsx
-import { MonthView } from '@rooz/calendar-ui';
-import '@rooz/calendar-ui/styles.css';
+import { MonthView } from '@rooz-calendar/ui';
+import '@rooz-calendar/ui/styles.css';
 
 <MonthView
   events={sessions}
@@ -38,17 +38,17 @@ Every view takes the same props: `events`, `calendarSystem`, `locale`, `numerals
 
 ## Styles
 
-**No Tailwind?** `import '@rooz/calendar-ui/styles.css'` — self-contained and free of
+**No Tailwind?** `import '@rooz-calendar/ui/styles.css'` — self-contained and free of
 Preflight, so it will not reset your application's styles.
 
-**Tailwind + shadcn?** Add `@source "../node_modules/@rooz/calendar-ui/dist";` to your CSS and
+**Tailwind + shadcn?** Add `@source "../node_modules/@rooz-calendar/ui/dist";` to your CSS and
 the calendar inherits your theme tokens.
 
-**Tailwind without shadcn tokens?** Add `@import "@rooz/calendar-ui/tokens.css";` as well.
+**Tailwind without shadcn tokens?** Add `@import "@rooz-calendar/ui/tokens.css";` as well.
 
 ## Peer dependencies
 
-`react` (18 or 19), `react-dom`, and `@rooz/calendar-core`. The core package is a peer so your
+`react` (18 or 19), `react-dom`, and `@rooz-calendar/core`. The core package is a peer so your
 app holds exactly one date engine and one calendar-system registry.
 
 Full documentation and a live demo: <https://github.com/ariantron/rooz-calendar#readme>

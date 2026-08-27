@@ -15,8 +15,8 @@ const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, '../../..');
 
 const PACKAGES = [
-  { id: 'calendar-core', name: '@rooz/calendar-core', entry: resolve(repoRoot, 'packages/calendar-core/src/index.ts') },
-  { id: 'calendar-ui', name: '@rooz/calendar-ui', entry: resolve(repoRoot, 'packages/calendar-ui/src/index.ts') },
+  { id: 'calendar-core', name: '@rooz-calendar/core', entry: resolve(repoRoot, 'packages/calendar-core/src/index.ts') },
+  { id: 'calendar-ui', name: '@rooz-calendar/ui', entry: resolve(repoRoot, 'packages/calendar-ui/src/index.ts') },
 ];
 
 /** Components documented by their `<Name>Props` interface. */
@@ -208,7 +208,7 @@ const uiEntries = packages.find((pkg) => pkg.id === 'calendar-ui').entries;
 const byName = new Map(uiEntries.map((entry) => [entry.name, entry]));
 
 const missing = COMPONENT_ORDER.filter((name) => !byName.has(name));
-if (missing.length > 0) throw new Error(`Components missing from @rooz/calendar-ui exports: ${missing.join(', ')}`);
+if (missing.length > 0) throw new Error(`Components missing from @rooz-calendar/ui exports: ${missing.join(', ')}`);
 
 const components = COMPONENT_ORDER.map((name) => {
   const component = byName.get(name);

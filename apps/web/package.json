@@ -1,5 +1,5 @@
 {
-  "name": "@rooz/web",
+  "name": "@rooz-calendar/web",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@rooz/calendar-core": "workspace:*",
-    "@rooz/calendar-ui": "workspace:*",
+    "@rooz-calendar/core": "workspace:*",
+    "@rooz-calendar/ui": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.18.2"

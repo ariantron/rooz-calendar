@@ -1,4 +1,4 @@
-import { getLocaleDirection, primarySubtag, type Direction } from '@rooz/calendar-core';
+import { getLocaleDirection, primarySubtag, type Direction } from '@rooz-calendar/core';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import * as React from 'react';
 import { cn } from '../lib/utils';

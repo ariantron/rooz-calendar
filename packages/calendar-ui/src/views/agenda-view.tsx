@@ -1,4 +1,4 @@
-import { buildAgendaGrid } from '@rooz/calendar-core';
+import { buildAgendaGrid } from '@rooz-calendar/core';
 import * as React from 'react';
 import { useViewContext } from '../lib/use-view-context';
 import { cn } from '../lib/utils';

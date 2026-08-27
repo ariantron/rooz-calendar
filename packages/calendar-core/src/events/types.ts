@@ -6,7 +6,7 @@
  * to know or care whether the view is currently rendering Gregorian or Jalali.
  */
 
-/** Built-in colour variants understood by `@rooz/calendar-ui`'s `EventBlock`. */
+/** Built-in colour variants understood by `@rooz-calendar/ui`'s `EventBlock`. */
 export type EventVariant = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'muted';
 
 /** An event as supplied by a consumer. */
