@@ -55,6 +55,8 @@ pnpm typecheck
 pnpm build
 ```
 
-CI runs the calendar-core suite on every pull request. If your change touches packaging, run
-`pnpm smoke` too — it packs the libraries and installs them into a throwaway app, which is the
-only thing that catches `files`/`exports` mistakes.
+There is no CI in this repository, so those three commands are the whole safety net — please
+actually run them. If your change touches packaging, run `pnpm smoke` as well: it packs the
+libraries and installs them into a throwaway app outside the workspace, which is the only
+thing that catches `files` / `exports` mistakes, a missing peer declaration, or a `workspace:`
+range leaking into a published manifest.

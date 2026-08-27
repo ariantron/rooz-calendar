@@ -31,6 +31,8 @@ not match `0.2.0`, so forgetting this breaks installs.
 
 ## Checklist
 
+There is no CI, so every step here is manual and none of them are optional.
+
 1. `pnpm install`
 2. `pnpm test` — the calendar-core suite must be fully green. Grid generation bugs are the
    whole risk of this project; do not release around a failing date test.
@@ -46,8 +48,9 @@ not match `0.2.0`, so forgetting this breaks installs.
 7. Update `CHANGELOG.md`, and set the version in both `package.json` files plus the peer range.
 8. `git tag vX.Y.Z && git push --tags`
 9. `pnpm publish -r --filter "./packages/*" --access public`
-10. `pnpm build:site` and deploy `apps/web/dist` (the Pages workflow does this on push to
-    `master`).
+10. `pnpm build:site` and deploy `apps/web/dist` to wherever the site is hosted. It is a
+    static build; see the website section of the README for the two things a static host
+    needs (a `404.html` fallback, and `VITE_BASE` when serving from a subpath).
 
 ## Package names
 
