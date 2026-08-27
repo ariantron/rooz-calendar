@@ -1,3 +1,4 @@
+import { useTheme } from '@rooz/demo';
 import { useEffect, useState } from 'react';
 import { cx } from './lib/cx';
 import { ApiPage } from './pages/api';
@@ -29,19 +30,11 @@ function useHashRoute(): [string, (next: string) => void] {
   return [route, navigate];
 }
 
-function useDarkMode(): [boolean, () => void] {
-  const [dark, setDark] = useState(
-    () => window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false,
-  );
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-  }, [dark]);
-  return [dark, () => setDark((value) => !value)];
-}
-
 export function App() {
   const [route, navigate] = useHashRoute();
-  const [dark, toggleDark] = useDarkMode();
+  // Same store the playground's Theme control writes to, so the two agree.
+  const { resolved, setTheme } = useTheme();
+  const dark = resolved === 'dark';
 
   return (
     <div className="min-h-dvh">
@@ -74,7 +67,7 @@ export function App() {
           </nav>
           <button
             type="button"
-            onClick={toggleDark}
+            onClick={() => setTheme(dark ? 'light' : 'dark')}
             aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
             className="ms-auto rounded-md border border-input px-3 py-1.5 text-xs font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
           >

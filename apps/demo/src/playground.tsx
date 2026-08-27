@@ -2,8 +2,10 @@ import type { CalendarEvent, Numerals, ResolvedEvent } from '@rooz/calendar-core
 import { getLocaleDirection, resolveCalendarSystem } from '@rooz/calendar-core';
 import { Calendar, type CalendarViewKind } from '@rooz/calendar-ui';
 import { useEffect, useMemo, useState } from 'react';
+import { type EventDetails, EventDialog } from './event-dialog';
 import { buildSampleEvents } from './sample-events';
 import { Segmented } from './segmented';
+import { type Theme, useTheme } from './use-theme';
 
 type SystemId = 'gregorian' | 'jalali';
 type LocaleId = 'en' | 'fa';
@@ -40,6 +42,8 @@ export function Playground({
   const [view, setView] = useState<CalendarViewKind>(defaultView);
   const [selected, setSelected] = useState<{ event: CalendarEvent; occurrence: ResolvedEvent } | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  // Shared with the docs site's header button so the two never disagree.
+  const { theme, setTheme } = useTheme();
 
   const now = useMemo(() => today ?? new Date(), [today]);
   const [date, setDate] = useState<Date>(now);
@@ -56,22 +60,43 @@ export function Playground({
   const events = useMemo(() => buildSampleEvents(date, system, locale), [date, system, locale]);
   const direction = getLocaleDirection(locale);
 
-  const summary = useMemo(() => {
+  const details = useMemo<EventDetails | null>(() => {
     if (!selected) return null;
+    const { event, occurrence } = selected;
     const resolved = resolveCalendarSystem(system);
     const pattern = direction === 'rtl' ? 'EEEE d MMMM yyyy' : 'EEEE, MMMM d, yyyy';
     const opts = { locale, numerals: numerals === 'auto' ? undefined : numerals };
-    const room = (selected.event.meta as { room?: string } | undefined)?.room;
+    const fa = locale === 'fa';
+    const days = occurrence.endDayNumber - occurrence.startDayNumber + 1;
+
     return {
-      title: selected.occurrence.title,
-      day: resolved.format(selected.occurrence.start, pattern, opts),
-      time: selected.occurrence.allDay
-        ? locale === 'fa'
+      title: occurrence.title,
+      day: resolved.format(occurrence.start, pattern, opts),
+      time: occurrence.allDay
+        ? fa
           ? 'تمام‌روز'
           : 'All day'
-        : `${resolved.format(selected.occurrence.start, 'HH:mm', opts)} – ${resolved.format(selected.occurrence.end, 'HH:mm', opts)}`,
-      room,
-      iso: selected.occurrence.start.toISOString(),
+        : `${resolved.format(occurrence.start, 'HH:mm', opts)} – ${resolved.format(occurrence.end, 'HH:mm', opts)}`,
+      room: (event.meta as { room?: string } | undefined)?.room,
+      variant: occurrence.variant,
+      span: occurrence.isMultiDay
+        ? fa
+          ? `${resolved.format(occurrence.start, 'd MMMM', opts)} تا ${resolved.format(resolved.addDays(resolved.fromDate(occurrence.start), days - 1), 'd MMMM', opts)} (${days} روز)`
+          : `${days} days, ${resolved.format(occurrence.start, 'MMM d', opts)} – ${resolved.format(resolved.addDays(resolved.fromDate(occurrence.start), days - 1), 'MMM d', opts)}`
+        : undefined,
+      // The instants exactly as the callback hands them over — the point the
+      // old inline strip was making, with room to show it properly.
+      payload: JSON.stringify(
+        {
+          id: occurrence.id,
+          start: occurrence.start.toISOString(),
+          end: occurrence.end.toISOString(),
+          allDay: occurrence.allDay,
+          variant: occurrence.variant,
+        },
+        null,
+        2,
+      ),
     };
   }, [selected, system, locale, numerals, direction]);
 
@@ -107,6 +132,16 @@ export function Playground({
               { value: 'arabext', label: '۱ ۲ ۳' },
             ]}
           />
+          <Segmented
+            label="Theme"
+            value={theme}
+            onChange={(next: Theme) => setTheme(next)}
+            options={[
+              { value: 'system', label: 'Auto' },
+              { value: 'light', label: 'Light' },
+              { value: 'dark', label: 'Dark' },
+            ]}
+          />
           <div className="ms-auto text-xs text-muted-foreground">
             <span className="font-medium text-foreground">{events.length}</span> sample events
           </div>
@@ -136,27 +171,7 @@ export function Playground({
         }}
       />
 
-      <div
-        dir={direction}
-        className="mt-4 rounded-lg border border-border bg-card p-4 text-sm text-card-foreground"
-        aria-live="polite"
-      >
-        {summary ? (
-          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <span className="font-semibold">{summary.title}</span>
-            <span className="text-muted-foreground">{summary.day}</span>
-            <span className="text-muted-foreground tabular-nums">{summary.time}</span>
-            {summary.room ? <span className="text-muted-foreground">· {summary.room}</span> : null}
-            <code dir="ltr" className="ms-auto rounded bg-muted px-1.5 py-0.5 font-mono text-[0.6875rem] text-muted-foreground">
-              {summary.iso}
-            </code>
-          </div>
-        ) : (
-          <span className="text-muted-foreground">
-            {locale === 'fa' ? 'برای دیدن جزئیات روی یک رویداد کلیک کنید.' : 'Click an event to see what the callback hands back.'}
-          </span>
-        )}
-      </div>
+      <EventDialog details={details} locale={locale} dir={direction} onClose={() => setSelected(null)} />
     </div>
   );
 }
