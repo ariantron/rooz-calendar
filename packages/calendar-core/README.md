@@ -1,7 +1,7 @@
 # @rooz/calendar-core
 
 The calendar-system-agnostic date engine and grid generator behind
-[Rooz Calendar](https://github.com/your-org/rooz-calendar). No React dependency — install this
+[Rooz Calendar](https://github.com/ariantron/rooz-calendar). No React dependency — install this
 alone if you need Jalali date math without calendar UI.
 
 ```bash
@@ -40,6 +40,6 @@ only — no `Date` is ever handed to or taken from the conversion layer. The sam
 therefore maps to the same day in every timezone, and no DST transition can shift a grid cell.
 
 Full documentation, including how to add a calendar system:
-<https://github.com/your-org/rooz-calendar#readme>
+<https://github.com/ariantron/rooz-calendar#readme>
 
 MIT licensed.

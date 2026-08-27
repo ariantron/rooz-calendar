@@ -51,6 +51,6 @@ the calendar inherits your theme tokens.
 `react` (18 or 19), `react-dom`, and `@rooz/calendar-core`. The core package is a peer so your
 app holds exactly one date engine and one calendar-system registry.
 
-Full documentation and a live demo: <https://github.com/your-org/rooz-calendar#readme>
+Full documentation and a live demo: <https://github.com/ariantron/rooz-calendar#readme>
 
 MIT licensed.

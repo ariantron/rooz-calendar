@@ -24,4 +24,4 @@ First release.
 - Two style delivery routes: a self-contained `styles.css` with no Preflight, and a
   `tokens.css` for Tailwind consumers.
 
-[0.1.0]: https://github.com/your-org/rooz-calendar/releases/tag/v0.1.0
+[0.1.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.1.0

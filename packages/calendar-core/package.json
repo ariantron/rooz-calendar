@@ -21,9 +21,9 @@
     "calendar", "jalali", "shamsi", "persian", "farsi", "gregorian",
     "date", "scheduler", "grid", "rtl"
   ],
-  "repository": { "type": "git", "url": "git+https://github.com/your-org/rooz-calendar.git", "directory": "packages/calendar-core" },
-  "homepage": "https://github.com/your-org/rooz-calendar#readme",
-  "bugs": { "url": "https://github.com/your-org/rooz-calendar/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/ariantron/rooz-calendar.git", "directory": "packages/calendar-core" },
+  "homepage": "https://github.com/ariantron/rooz-calendar#readme",
+  "bugs": { "url": "https://github.com/ariantron/rooz-calendar/issues" },
   "publishConfig": { "access": "public" },
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",

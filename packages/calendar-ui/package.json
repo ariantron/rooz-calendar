@@ -40,12 +40,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/rooz-calendar.git",
+    "url": "git+https://github.com/ariantron/rooz-calendar.git",
     "directory": "packages/calendar-ui"
   },
-  "homepage": "https://github.com/your-org/rooz-calendar#readme",
+  "homepage": "https://github.com/ariantron/rooz-calendar#readme",
   "bugs": {
-    "url": "https://github.com/your-org/rooz-calendar/issues"
+    "url": "https://github.com/ariantron/rooz-calendar/issues"
   },
   "publishConfig": {
     "access": "public"
