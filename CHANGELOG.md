@@ -2,7 +2,7 @@
 
 Both packages are versioned together and follow [Semantic Versioning](https://semver.org/).
 
-## Unreleased
+## [0.2.0] — 2026-08-30
 
 ### `@rooz-calendar/ui`
 
@@ -50,5 +50,6 @@ First release.
 - Two style delivery routes: a self-contained `styles.css` with no Preflight, and a
   `tokens.css` for Tailwind consumers.
 
+[0.2.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.2.0
 [0.1.1]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.1.1
 [0.1.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.1.0
