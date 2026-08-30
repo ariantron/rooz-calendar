@@ -20,6 +20,11 @@ interface Seed {
 const SEEDS: Seed[] = [
   { dayOffset: 1, startHour: 9, durationMinutes: 90, title: 'Linear Algebra — Lecture', titleFa: 'جبر خطی — درس', variant: 'default', room: 'Hall A' },
   { dayOffset: 1, startHour: 11, durationMinutes: 60, title: 'Office hours', titleFa: 'ساعت مراجعه', variant: 'muted', room: 'B-204' },
+  // Day 1 is deliberately the busiest day of the month: it is what makes the
+  // month view's "+N more" overflow row — and the day dialog behind it —
+  // visible in the demo.
+  { dayOffset: 1, startHour: 14, durationMinutes: 60, title: 'Reading group', titleFa: 'گروه مطالعه', variant: 'primary', room: 'B-101' },
+  { dayOffset: 1, startHour: 16, durationMinutes: 45, title: 'Lab induction', titleFa: 'توجیه آزمایشگاه', variant: 'success', room: 'Lab 1' },
   { dayOffset: 2, startHour: 8, durationMinutes: 120, title: 'Physics Lab', titleFa: 'آزمایشگاه فیزیک', variant: 'success', room: 'Lab 3' },
   { dayOffset: 2, startHour: 9, durationMinutes: 60, title: 'Faculty standup', titleFa: 'جلسه گروه', variant: 'primary', room: 'Room 12' },
   { dayOffset: 3, startHour: 13, durationMinutes: 180, title: 'Thesis defence', titleFa: 'دفاع پایان‌نامه', variant: 'warning', room: 'Aula' },
