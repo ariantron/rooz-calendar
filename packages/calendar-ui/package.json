@@ -1,6 +1,6 @@
 {
   "name": "@rooz-calendar/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "shadcn-styled React calendar and scheduling views with native Jalali (Shamsi) and RTL support.",
   "license": "MIT",
   "type": "module",
