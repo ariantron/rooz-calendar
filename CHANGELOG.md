@@ -2,6 +2,22 @@
 
 Both packages are versioned together and follow [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### `@rooz-calendar/ui`
+
+- `MonthView`'s "+N more" overflow row now opens a dialog listing that day's
+  events in full, rather than falling through to `onDateSelect`. Rows are
+  `EventBlock`s in the `row` layout — the same component the agenda list uses —
+  so time formatting, RTL and Jalali digit shaping stay consistent, and
+  selecting one calls the same `onEventClick` as clicking a chip in the grid.
+  The overflow threshold itself is unchanged.
+- Added a shadcn-styled `Dialog` primitive (`Dialog`, `DialogTrigger`,
+  `DialogContent`, …), exported for consumers. This adds
+  `@radix-ui/react-dialog` as a dependency.
+- Passing `onShowMore` keeps the previous behaviour: the overflow row calls it
+  and no dialog opens, for consumers who present their own panel.
+
 ## [0.1.1] — 2026-08-30
 
 ### `@rooz-calendar/ui`

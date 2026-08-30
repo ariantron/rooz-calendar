@@ -11,6 +11,18 @@ export { cn } from './lib/utils';
 
 export { CalendarGrid, type AnyGrid, type CalendarGridProps } from './primitives/calendar-grid';
 export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+  type DialogContentProps,
+} from './primitives/dialog';
+export {
   CalendarHeader,
   type CalendarHeaderLabels,
   type CalendarHeaderProps,

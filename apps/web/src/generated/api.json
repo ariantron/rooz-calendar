@@ -228,7 +228,7 @@
         },
         {
           "name": "layout",
-          "type": "'chip' | 'block' | 'row' | null",
+          "type": "'row' | 'chip' | 'block' | null",
           "optional": true,
           "description": ""
         },
@@ -357,7 +357,7 @@
           "name": "onShowMore",
           "type": "((day: DayCell, events: ResolvedEvent[]) => void)",
           "optional": true,
-          "description": "Fired when the overflow row is clicked."
+          "description": "Fired when the overflow row is clicked.\n\nSupplying this replaces the built-in dialog — the overflow row becomes a\nplain button that calls this instead, for consumers who want to open their\nown panel. Leave it unset to get the default dialog listing the day."
         },
         {
           "name": "selectedDate",
@@ -5969,6 +5969,156 @@
           "typeText": "TimeViewBaseProps"
         },
         {
+          "name": "Dialog",
+          "kind": "function",
+          "description": "shadcn/ui's Dialog, in the same shape consumers already know.\n\nEverything modal-shaped — focus trap, Escape, backdrop dismissal, scroll\nlock, `role=\"dialog\"` and the aria wiring — comes from Radix. Nothing here\nsuppresses any of it; this file only supplies the styling and the close\naffordance.",
+          "signature": "Dialog(props: DialogPrimitive.DialogProps): React.ReactNode | Promise<React.ReactNode>",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogClose",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogClose(props: DialogPrimitive.DialogCloseProps & React.RefAttributes<HTMLButtonElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogContent",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogContent(props: DialogContentProps & React.RefAttributes<HTMLDivElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogContentProps",
+          "kind": "interface",
+          "description": "",
+          "properties": [
+            {
+              "name": "asChild",
+              "type": "boolean",
+              "optional": true,
+              "description": ""
+            },
+            {
+              "name": "closeLabel",
+              "type": "string",
+              "optional": true,
+              "description": "Accessible name for the close button.",
+              "default": "'Close'"
+            },
+            {
+              "name": "deferPointerDownOutside",
+              "type": "boolean",
+              "optional": true,
+              "description": "When `true`, a `'pointerdown'` event outside of the layered element will\nwait for the interaction's click event before dispatching, allowing\nthird-party code to stop propagation of later events and cancel dismissal.",
+              "inheritedFrom": "DismissableLayerProps"
+            },
+            {
+              "name": "forceMount",
+              "type": "true",
+              "optional": true,
+              "description": "Used to force mounting when more control is needed. Useful when\ncontrolling animation with React animation libraries."
+            },
+            {
+              "name": "onCloseAutoFocus",
+              "type": "((event: Event) => void)",
+              "optional": true,
+              "description": "Event handler called when auto-focusing on close.\nCan be prevented.",
+              "inheritedFrom": "DialogContentImplProps"
+            },
+            {
+              "name": "onEscapeKeyDown",
+              "type": "((event: KeyboardEvent) => void)",
+              "optional": true,
+              "description": "Event handler called when the escape key is down.\nCan be prevented.",
+              "inheritedFrom": "DismissableLayerProps"
+            },
+            {
+              "name": "onFocusOutside",
+              "type": "((event: FocusOutsideEvent) => void)",
+              "optional": true,
+              "description": "Event handler called when the focus moves outside of the `DismissableLayer`.\nCan be prevented.",
+              "inheritedFrom": "DismissableLayerProps"
+            },
+            {
+              "name": "onInteractOutside",
+              "type": "((event: PointerDownOutsideEvent | FocusOutsideEvent) => void)",
+              "optional": true,
+              "description": "Event handler called when an interaction happens outside the `DismissableLayer`.\nSpecifically, when a `pointerdown` event happens outside or focus moves outside of it.\nCan be prevented.",
+              "inheritedFrom": "DismissableLayerProps"
+            },
+            {
+              "name": "onOpenAutoFocus",
+              "type": "((event: Event) => void)",
+              "optional": true,
+              "description": "Event handler called when auto-focusing on open.\nCan be prevented.",
+              "inheritedFrom": "DialogContentImplProps"
+            },
+            {
+              "name": "onPointerDownOutside",
+              "type": "((event: PointerDownOutsideEvent) => void)",
+              "optional": true,
+              "description": "Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`.\nCan be prevented.",
+              "inheritedFrom": "DismissableLayerProps"
+            }
+          ],
+          "forwardedTo": [
+            "React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>"
+          ]
+        },
+        {
+          "name": "DialogDescription",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogDescription(props: Omit<DialogPrimitive.DialogDescriptionProps & React.RefAttributes<HTMLParagraphElement>, 'ref'> & React.RefAttributes<HTMLParagraphElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogHeader",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogHeader(__0: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogOverlay",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogOverlay(props: Omit<DialogPrimitive.DialogOverlayProps & React.RefAttributes<HTMLDivElement>, 'ref'> & React.RefAttributes<HTMLDivElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogPortal",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogPortal(props: DialogPrimitive.DialogPortalProps): React.ReactNode | Promise<React.ReactNode>",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogTitle",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogTitle(props: Omit<DialogPrimitive.DialogTitleProps & React.RefAttributes<HTMLHeadingElement>, 'ref'> & React.RefAttributes<HTMLHeadingElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
+          "name": "DialogTrigger",
+          "kind": "function",
+          "description": "",
+          "signature": "DialogTrigger(props: DialogPrimitive.DialogTriggerProps & React.RefAttributes<HTMLButtonElement>): string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPor…",
+          "properties": [],
+          "forwardedTo": []
+        },
+        {
           "name": "EventBlock",
           "kind": "function",
           "description": "A single event, rendered inside a month cell (`chip`), a week/day time slot\n(`block`), or an agenda list (`row`).\n\nPurely presentational: it does no date maths and knows nothing about calendar\nsystems — the time label arrives already formatted by whichever view owns it.",
@@ -6032,7 +6182,7 @@
             },
             {
               "name": "layout",
-              "type": "'chip' | 'block' | 'row' | null",
+              "type": "'row' | 'chip' | 'block' | null",
               "optional": true,
               "description": ""
             },
@@ -6069,7 +6219,7 @@
           "name": "eventBlockVariants",
           "kind": "function",
           "description": "",
-          "signature": "eventBlockVariants(props?: ({ variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'muted' | null | undefined; layout?: 'chip' | 'block' | 'row' | null | undefined; selected?: boolean | null | undefined; dense?: boolean | null |…): string",
+          "signature": "eventBlockVariants(props?: ({ variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'muted' | null | undefined; layout?: 'row' | 'chip' | 'block' | null | undefined; selected?: boolean | null | undefined; dense?: boolean | null |…): string",
           "properties": [],
           "forwardedTo": []
         },
@@ -6522,7 +6672,7 @@
               "name": "onShowMore",
               "type": "((day: DayCell, events: ResolvedEvent[]) => void)",
               "optional": true,
-              "description": "Fired when the overflow row is clicked."
+              "description": "Fired when the overflow row is clicked.\n\nSupplying this replaces the built-in dialog — the overflow row becomes a\nplain button that calls this instead, for consumers who want to open their\nown panel. Leave it unset to get the default dialog listing the day."
             },
             {
               "name": "selectedDate",
