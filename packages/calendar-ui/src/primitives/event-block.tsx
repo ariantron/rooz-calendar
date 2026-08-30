@@ -16,8 +16,12 @@ const eventBlockVariants = cva(
         muted: 'border-border bg-muted text-muted-foreground hover:bg-muted/70',
       },
       layout: {
-        /** A one-line pill, as used inside a month cell. */
-        chip: 'h-[1.375rem] gap-1.5 rounded-sm px-1.5 text-[0.6875rem] leading-none',
+        /**
+         * A one-line pill, as used inside a month cell. Centred rather than
+         * baseline-aligned: the height is fixed, so a baseline would pin the
+         * text to the top of the pill instead of the middle of it.
+         */
+        chip: 'h-[1.375rem] items-center gap-1.5 rounded-sm px-1.5 text-[0.6875rem] leading-none',
         /** A filled block sized by the caller, as used in a week or day column. */
         block: 'h-full flex-col items-stretch gap-0.5 rounded-md px-1.5 py-1 text-xs leading-tight',
         /** A full-width row, as used in an agenda list. */
@@ -27,9 +31,13 @@ const eventBlockVariants = cva(
         true: 'ring-[2px] ring-ring/70',
         false: '',
       },
-      /** Collapse onto one line — for blocks too short to fit two. */
+      /**
+       * Collapse onto one line — for blocks too short to fit two. Centred for
+       * the same reason as `chip`: the block's height comes from its caller,
+       * so the single line has to be centred in whatever space it is given.
+       */
       dense: {
-        true: 'flex-row items-baseline gap-1.5 py-0.5',
+        true: 'flex-row items-center gap-1.5 py-0.5',
         false: '',
       },
     },

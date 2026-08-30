@@ -2,6 +2,16 @@
 
 Both packages are versioned together and follow [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### `@rooz-calendar/ui`
+
+- Fixed: event text sat against the top of its box instead of the middle in the
+  `chip` layout (month cells) and in `dense` blocks. Both have a height fixed by
+  their container, so the inherited `items-baseline` pinned the text to the
+  baseline of the flex line rather than centring it. `row` keeps baseline
+  alignment, where it is correct — that layout is sized by its own content.
+
 ## [0.1.0] — 2026-08-27
 
 First release.
