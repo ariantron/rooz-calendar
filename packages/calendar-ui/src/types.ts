@@ -50,9 +50,16 @@ export interface CalendarViewBaseProps {
 
 /** Props shared by the two time-grid views. */
 export interface TimeViewBaseProps extends CalendarViewBaseProps {
-  /** First hour shown. @default 7 */
+  /**
+   * First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.
+   * @default 0
+   */
   startHour?: number;
-  /** Exclusive end hour. @default 21 */
+  /**
+   * Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater
+   * than `startHour` and at most 24, so 24 means midnight at the end of the
+   * day. @default 24
+   */
   endHour?: number;
   /** Minutes per slot row. @default 60 */
   slotMinutes?: number;

@@ -429,8 +429,8 @@
           "name": "endHour",
           "type": "number",
           "optional": true,
-          "description": "Exclusive end hour.",
-          "default": "21",
+          "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+          "default": "24",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -497,8 +497,8 @@
           "name": "startHour",
           "type": "number",
           "optional": true,
-          "description": "First hour shown.",
-          "default": "7",
+          "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+          "default": "0",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -557,8 +557,8 @@
           "name": "endHour",
           "type": "number",
           "optional": true,
-          "description": "Exclusive end hour.",
-          "default": "21",
+          "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+          "default": "24",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -625,8 +625,8 @@
           "name": "startHour",
           "type": "number",
           "optional": true,
-          "description": "First hour shown.",
-          "default": "7",
+          "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+          "default": "0",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -841,8 +841,8 @@
           "name": "endHour",
           "type": "number",
           "optional": true,
-          "description": "Exclusive end hour.",
-          "default": "21",
+          "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+          "default": "24",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -948,8 +948,8 @@
           "name": "startHour",
           "type": "number",
           "optional": true,
-          "description": "First hour shown.",
-          "default": "7",
+          "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+          "default": "0",
           "inheritedFrom": "TimeViewBaseProps"
         },
         {
@@ -5027,8 +5027,8 @@
               "name": "endHour",
               "type": "number",
               "optional": true,
-              "description": "Exclusive end hour.",
-              "default": "21",
+              "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+              "default": "24",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {
@@ -5134,8 +5134,8 @@
               "name": "startHour",
               "type": "number",
               "optional": true,
-              "description": "First hour shown.",
-              "default": "7",
+              "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+              "default": "0",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {
@@ -5871,8 +5871,8 @@
               "name": "endHour",
               "type": "number",
               "optional": true,
-              "description": "Exclusive end hour.",
-              "default": "21",
+              "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+              "default": "24",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {
@@ -5939,8 +5939,8 @@
               "name": "startHour",
               "type": "number",
               "optional": true,
-              "description": "First hour shown.",
-              "default": "7",
+              "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+              "default": "0",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {
@@ -7169,8 +7169,8 @@
               "name": "endHour",
               "type": "number",
               "optional": true,
-              "description": "Exclusive end hour.",
-              "default": "21"
+              "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+              "default": "24"
             },
             {
               "name": "events",
@@ -7234,8 +7234,8 @@
               "name": "startHour",
               "type": "number",
               "optional": true,
-              "description": "First hour shown.",
-              "default": "7"
+              "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+              "default": "0"
             },
             {
               "name": "today",
@@ -7434,8 +7434,8 @@
               "name": "endHour",
               "type": "number",
               "optional": true,
-              "description": "Exclusive end hour.",
-              "default": "21",
+              "description": "Exclusive end hour, as a whole hour on the 24-hour clock. Integer greater\nthan `startHour` and at most 24, so 24 means midnight at the end of the\nday.",
+              "default": "24",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {
@@ -7502,8 +7502,8 @@
               "name": "startHour",
               "type": "number",
               "optional": true,
-              "description": "First hour shown.",
-              "default": "7",
+              "description": "First hour shown, as a whole hour on the 24-hour clock. Integer 0-23.",
+              "default": "0",
               "inheritedFrom": "TimeViewBaseProps"
             },
             {

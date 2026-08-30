@@ -2,6 +2,17 @@
 
 Both packages are versioned together and follow [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] — 2026-08-30
+
+### `@rooz-calendar/ui`
+
+- `WeekView` and `DayView` now show a full 24 hours by default. They previously
+  cropped to 07:00–21:00, which silently hid any event outside office hours
+  rather than compacting it. `startHour` and `endHour` are unchanged and still
+  take whole hours on the 24-hour clock — `startHour` an integer 0-23,
+  `endHour` an integer greater than it and at most 24 — so a caller wanting the
+  old window passes `startHour={7} endHour={21}`.
+
 ## [0.2.0] — 2026-08-30
 
 ### `@rooz-calendar/ui`
@@ -50,6 +61,7 @@ First release.
 - Two style delivery routes: a self-contained `styles.css` with no Preflight, and a
   `tokens.css` for Tailwind consumers.
 
+[0.3.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.3.0
 [0.2.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.2.0
 [0.1.1]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.1.1
 [0.1.0]: https://github.com/ariantron/rooz-calendar/releases/tag/v0.1.0

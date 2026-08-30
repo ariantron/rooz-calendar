@@ -25,8 +25,11 @@ interface TimeViewProps extends TimeViewBaseProps {
 function TimeView(props: TimeViewProps) {
   const {
     kind,
-    startHour = 7,
-    endHour = 21,
+    // A full day by default. Cropping to office hours hides events rather
+    // than compacting them, and a caller who wants a narrower window can say
+    // so; a caller who does not cannot discover what they are missing.
+    startHour = 0,
+    endHour = 24,
     slotMinutes = 60,
     slotHeight = 48,
     onEventClick,
