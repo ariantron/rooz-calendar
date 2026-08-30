@@ -23,6 +23,14 @@ function spaFallback(): Plugin {
   };
 }
 
+/**
+ * Hostnames Vite answers to. The dev server rejects requests whose `Host`
+ * header it does not recognise (a DNS-rebinding guard). Localhost is trusted
+ * by default; the public domain the site is proxied under is not, so it has to
+ * be named here.
+ */
+const allowedHosts = ['calendar.tech0.ir'];
+
 export default defineConfig({
   plugins: [react(), tailwindcss(), spaFallback()],
   /**
@@ -36,10 +44,12 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5174,
     strictPort: true,
+    allowedHosts,
   },
   preview: {
     host: '0.0.0.0',
     port: 5174,
     strictPort: true,
+    allowedHosts,
   },
 });
